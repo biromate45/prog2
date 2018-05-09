@@ -147,7 +147,7 @@ int main(){
 				lepx++;
 				dbo++;
 			}
-			lepy = lepy - (dbx + 1);
+			lepy = lepy - (dbo + 1);
 			while ((tomb[lepx][lepy] != 'X') && (lepx > 0)&& (lepy > 0)){
 				lepy--;
 				lepx--;
