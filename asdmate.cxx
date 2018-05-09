@@ -36,7 +36,8 @@ int main(){
 	start(tomb);
 	
 	bool nyert = false;
-	int dbx, dbo;
+	int dbx;
+	int dbo;
 	for(int ny=0; !nyert; ny++){
 		if(ny % 2 == 0 )
 		cout << "1. jatekos:";
@@ -56,24 +57,129 @@ int main(){
 			ny-=1;
 		} else
 		ny-=1;
-		
+		int lepx = 0;
+		int lepy = 0;
+		lepx = x;
+		lepy = y;
 		if(ny % 2 == 0 ){
-			while ((tomb[x][y] != 'X') && (x < 10)){
-				x++;
+			while ((tomb[lepx][y] != 'X') && (lepx < 10)){
+				lepx++;
 				dbx++;
 			}
+			lepx = lepx - (dbx + 1);
+			while ((tomb[lepx][y] != 'X') && (lepx > 0)){
+				lepx--;
+				dbx++;
+			}
+			
+			if (dbx != 5){
+				dbx = 0;
+			}
+			while ((tomb[x][lepy] != 'X') && (lepx < 10)){
+				lepy++;
+				dbx++;
+			}
+			lepy = lepy - (dbx + 1);
+			while ((tomb[x][lepy] != 'X') && (lepx > 0)){
+				lepy--;
+				dbx++;
+			}
+			if (dbx != 5){
+				dbx = 0;
+			}
+			while ((tomb[lepx][lepy] != 'X') && (lepx < 10) && (lepy < 10)){
+				lepy++;
+				lepx++;
+				dbx++;
+			}
+			lepy = lepy - (dbx + 1);
+			while ((tomb[lepx][lepy] != 'X') && (lepx > 0)&& (lepy > 0)){
+				lepy--;
+				lepx--;
+				dbx++;
+			}
+			if (dbx != 5){
+				dbx = 0;
+			}
+			while ((tomb[lepx][lepy] != 'X') && (lepx < 10) && (lepy > 0)){
+				lepy--;
+				lepx++;
+				dbx++;
+			}
+			lepy = lepy - (dbx + 1);
+			while ((tomb[lepx][lepy] != 'X') && (lepx > 0)&& (lepy < 10)){
+				lepy++;
+				lepx--;
+				dbx++;
+			}
+			if (dbx != 5){
+				dbx = 0;
+			}
 		}
-		if (dbx == 5){
+		if(ny % 2 != 0 ){
+			while ((tomb[lepx][y] != 'X') && (lepx < 10)){
+				lepx++;
+				dbo++;
+			}
+			lepx = lepx - (dbo + 1);
+			while ((tomb[lepx][y] != 'X') && (lepx > 0)){
+				lepx--;
+				dbo++;
+			}
+			
+			if (dbo != 5){
+				dbo = 0;
+			}
+			while ((tomb[x][lepy] != 'X') && (lepx < 10)){
+				lepy++;
+				dbo++;
+			}
+			lepy = lepy - (dbo + 1);
+			while ((tomb[x][lepy] != 'X') && (lepx > 0)){
+				lepy--;
+				dbo++;
+			}
+			if (dbo != 5){
+				dbo = 0;
+			}
+			while ((tomb[lepx][lepy] != 'X') && (lepx < 10) && (lepy < 10)){
+				lepy++;
+				lepx++;
+				dbo++;
+			}
+			lepy = lepy - (dbx + 1);
+			while ((tomb[lepx][lepy] != 'X') && (lepx > 0)&& (lepy > 0)){
+				lepy--;
+				lepx--;
+				dbo++;
+			}
+			if (dbo != 5){
+				dbo = 0;
+			}
+			while ((tomb[lepx][lepy] != 'X') && (lepx < 10) && (lepy > 0)){
+				lepy--;
+				lepx++;
+				dbo++;
+			}
+			lepy = lepy - (dbo + 1);
+			while ((tomb[lepx][lepy] != 'X') && (lepx > 0)&& (lepy < 10)){
+				lepy++;
+				lepx--;
+				dbo++;
+			}
+			if (dbo != 5){
+				dbo = 0;
+			}
+		}
+		if(dbx == 5){
 			cout << "1. jatekos nyert!";
 			nyert = true;
 		}
-		else 
-			cout << "1. jatekos nyert!";
+		if(dbo == 5){
+			cout << "2. jatekos nyert!";
 			nyert = true;
+		}
 	}
-	
-	
-
 	return 0;
 }
 
