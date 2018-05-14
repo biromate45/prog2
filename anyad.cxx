@@ -3,23 +3,25 @@
 #include <cstdlib>
 using namespace std;
 
+double AtlagFrissit(double eddigi, double uj, int db){
+	double ujatlag = (eddigi*db+uj)/(db+1);
+	return ujatlag;
+}
+
 int main(){
-	int x;
-	int db = 1;
-	int i = 0;
-	int tomb[db];
+	bool jo = true;
+	double szam, atlag;
+	int db;
+	atlag=0;
+	db=0;
 	do{
-		cin >> x;
-		if((5 < x) && (x < 400) && (isdigit(x))){
-		db+=1;
-		i+=1;
-		tomb[i-1] = x;
-		}else if(isdigit(x)){
-		cout << "basszad meg";
-		}else cout << "nem megfelelo tart";
-	}while ((db == 15) || (x == ' '));
-	for(i = 0; i <= db; i++){
-		cout << tomb[i];
+		cin >> szam;
+		jo = ((szam > 5) && (szam < 400));
+		if (jo){
+			atlag = AtlagFrissit(atlag, szam, db);
+			db++;
 		}
-	return 0;
+	}while (jo);
+	cout << atlag;
+	
 }
