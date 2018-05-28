@@ -27,7 +27,7 @@ int main(){
 			cout << "Nem mengfelelo tartomany! Az eddigi atlag: ";
 			}
 		}else cout << "nem szam";
-	}while (szam != '\n');
-	cout << atlag;
+	}while (getline(cin, szam) && szam[0.00] != '\0')
+	;cout << atlag;
 	return 0;
 }
